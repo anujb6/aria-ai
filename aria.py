@@ -28,8 +28,8 @@ def wishMe():
 def sendEmail(to, content):
     server = smtplib.SMTP('smtp.gmail,com', 587)
     server.ehlo()
-    server.login('bhoranuj3@gmail.com', 'anujb109$')
-    server.sendmail('bhoranuj3@gmail.com', to, content)
+    server.login('', '')
+    server.sendmail('', to, content)
     server.close()
 def takeCommand():
     #it will take microphone input
