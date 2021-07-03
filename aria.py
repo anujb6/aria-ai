@@ -5,10 +5,11 @@ import wikipedia
 import webbrowser
 import os
 import smtplib
+import datetime
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[0].id)
+engine.setProperty('voice', voices[1].id)
 
 def speak(audio):
     engine.say(audio)
@@ -23,7 +24,7 @@ def wishMe():
     else:
         speak("Good Evening!")     
 
-    speak("How are you doing babe?,what can i help you with?")    
+    speak("How are you doing ?,what can i help you with?")    
 
 def sendEmail(to, content):
     server = smtplib.SMTP('smtp.gmail,com', 587)
@@ -52,45 +53,44 @@ def takeCommand():
 if __name__ == '__main__':
     wishMe()
     while True:
-        query = takeCommand().lower()
-    #logic for executing tasks based on query
-    if 'wikipedia' in query:
-        speak('Ok give me a sec...')
-        query = query.replace("wikipedia", "")
-        results = wikipedia.summary(query, sentences=2)
-        speak("According to Wikipedia")
-        print(results)
-        speak(results)
-    elif 'open youtube' in query:
-        webbrowser.open("youtube.com")
+        query= takeCommand().lower()
+        if 'wikipedia' in query:
+            speak('Ok give me a sec...')
+            query = query.replace("wikipedia", "")
+            results = wikipedia.summary(query, sentences=2)
+            speak("According to Wikipedia")
+            print(results)
+            speak(results)
+        elif 'open youtube' in query:
+            webbrowser.open("https://www.youtube.com")
 
-    elif 'open google' in query:
-        webbrowser.open("google.com")
+        elif 'open google' in query:
+            webbrowser.open("https://www.google.com")
 
-    elif 'open github' in query:
-        webbrowser.open("github.com") 
+        elif 'open github' in query:
+            webbrowser.open("https://www.github.com") 
 
-    elif 'open gmail' in query:
-        webbrowser.open("gmail.com")     
+        elif 'open gmail' in query:
+            webbrowser.open("https://www.gmail.com")     
 
-    elif 'open outlook' in query:
-        webbrowser.open("outlook.com")
+        elif 'open outlook' in query:
+            webbrowser.open("https://www.outlook.com")
 
-    elif 'open gogoanime' in query:
-        webbrowser.open("gogoanime.sh")  
+        elif 'open gogoanime' in query:
+            webbrowser.open("https://gogoanime.pe")  
 
 
-    elif 'the time' in query:
-        strTime = datetime.datetime.now().strtime("%H:%M:%S")
-        speak(f"it's {strTime}")
+        elif 'the time' in query:
+            strTime = datetime.datetime.now().strftime("%H:%M:%S")
+            speak(f"it's {strTime}")
 
-    elif 'email to anuj' in query:
-        try:
-            speak("what should i say?")
-            content = takeCommand()
-            to = "bhoranuj3@gmail.com"
-            sendEmail(to,content)
-            speak("Email has been sent!")
-        except Exception as e:
-            print(e)
-            speak("sorry the email is not been sent")  
+        elif 'email to anuj' in query:
+            try:
+                speak("what should i say?")
+                content = takeCommand()
+                to = "bhoranuj3@gmail.com"
+                sendEmail(to,content)
+                speak("Email has been sent!")
+            except Exception as e:
+                print(e)
+                speak("sorry the email is not been sent")  
