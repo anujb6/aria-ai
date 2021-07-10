@@ -6,6 +6,7 @@ import webbrowser
 import os
 import smtplib
 import datetime
+import pyjokes
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -94,3 +95,35 @@ if __name__ == '__main__':
             except Exception as e:
                 print(e)
                 speak("sorry the email is not been sent")  
+                
+        elif 'joke' in query:
+            speak(pyjokes.get_joke("en","all"))     
+        
+        elif 'how are you' in query:            
+            speak("I am fine, Thank you")            
+            speak("How are you, Sir")          
+        
+        elif 'fine' in query or "good" in query:            
+            speak("It's good to know that your fine")    
+            
+        elif "what's your name" in query or "What is your name" in query:            
+            assname = "Aria"
+            speak("My friends call me")            
+            speak(assname)            
+            print("My friends call me", assname)    
+            
+        elif "who made you" in query or "who created you" in query:            
+            speak("I have been created by Anuj and Darshan.")     
+            
+        elif "who i am" in query:            
+            speak("If you talk then definitely your human.")         
+                
+        elif "why you came to world" in query:            
+            speak("Thanks to Gaurav. further It's a secret")    
+            
+        elif 'is love' in query:            
+            speak("It is 7th sense that destroy all other senses")         
+            
+        elif "who are you" in query:            
+            speak("I am your virtual assistant created by Gaurav") 
+        
