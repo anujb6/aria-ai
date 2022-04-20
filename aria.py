@@ -125,5 +125,5 @@ if __name__ == '__main__':
             speak("It is 7th sense that destroy all other senses")         
             
         elif "who are you" in query:            
-            speak("I am your virtual assistant created by Gaurav") 
+            speak("I am your virtual assistant created by Anuj") 
         
