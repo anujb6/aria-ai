@@ -12,7 +12,9 @@ import mediapipe as mp
 import wolframalpha
 import json
 import requests
+import datetime
 
+#this is speech agent
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
@@ -25,8 +27,8 @@ def wishMe():
     hour=int(datetime.datetime.now().hour)
     if hour>=0 and hour<=12:
         speak("Good Morning!")
-    elif hour>=12 and hour<18:
-        speak("Good Afternoon!")
+    # elif hour>=12 and hour<18:
+    #     speak("Good Afternoon!")
     else:
         speak("Good Evening!")     
 
